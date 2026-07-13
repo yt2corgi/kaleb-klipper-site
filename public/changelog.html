@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Changelog · Kaleb Klipper</title>
+  <meta name="description" content="Everything that has changed in Kaleb Klipper, version by version." />
+  <link rel="icon" type="image/png" href="/assets/icon.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <canvas id="bg-stars" aria-hidden="true"></canvas>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+    <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 4v16M17 4v16M2 9h5M2 15h5M17 9h5M17 15h5"/></symbol>
+  </svg>
+
+  <header>
+    <div class="wrap">
+      <a class="brand" href="/">
+        <span class="brand-badge"><svg class="icon"><use href="#i-scissors"/></svg></span>
+        <span class="brand-name">KALEB <em>KLIPPER</em></span>
+      </a>
+      <nav class="top-nav">
+        <a class="plain" href="/#features">Features</a>
+        <a class="plain" href="/#faq">FAQ</a>
+        <a class="btn btn-primary" href="/download"><svg class="icon"><use href="#i-download"/></svg>Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <span class="kicker"><svg class="icon"><use href="#i-film"/></svg>Changelog</span>
+        <h2>What changed, and when.</h2>
+        <p class="sub">The newest version is always the one the download button gives you. Older installs update themselves.</p>
+
+        <div class="log">
+          <div class="log-entry">
+            <div class="log-head"><span class="log-ver">1.10.x</span><span class="log-title">The app that updates itself</span></div>
+            <ul>
+              <li>Auto updates: the app checks in the background and installs new versions on shutdown, or instantly from the restart toast</li>
+              <li>This website, with a download that always points at the newest build</li>
+              <li>Redesigned notifications: icon tile, countdown bar, and they stay put while your mouse is over them</li>
+              <li>Black outlines removed from every button, chip, keycap, toggle and dropdown</li>
+            </ul>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-head"><span class="log-ver">1.9.x</span><span class="log-title">Gradients everywhere</span></div>
+            <ul>
+              <li>Two-color gradient themes with an angle dial</li>
+              <li>Live preview: the whole app wears your theme while you mix it</li>
+              <li>Gradients now paint button edges and shadows too, not just the fill</li>
+              <li>Trim moved onto the playback timeline, with filmstrip frames and a waveform</li>
+              <li>New playhead, library zoom with Ctrl + and Ctrl -, ten stock klip sounds</li>
+              <li>Rounded corners as its own toggle, steadier starfield while resizing</li>
+            </ul>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-head"><span class="log-ver">1.8.x</span><span class="log-title">The big library update</span></div>
+            <ul>
+              <li>Favourites tab and starring, library search, klip dates</li>
+              <li>Hover a klip to preview it, no play button needed</li>
+              <li>Quality settings: 480p to 1080p, 30 or 60 fps</li>
+              <li>Monitor quick-switch hotkeys and an active klipping pause</li>
+              <li>Themes got their own tab, plus the glossy liquid glass look</li>
+              <li>Smooth per-element theme fade, animation fixes on picky PCs</li>
+            </ul>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-head"><span class="log-ver">1.6 to 1.7</span><span class="log-title">Make it yours</span></div>
+            <ul>
+              <li>Custom themes with a hand-built color picker, editable in place</li>
+              <li>Custom MP3 klip sound and optional app sounds</li>
+              <li>Rename from the player, no more autoplay, drag a klip out to share</li>
+              <li>Startup fanfare and entrance animation, dismissable toasts</li>
+              <li>A practice range in Settings to test your klipping</li>
+            </ul>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-head"><span class="log-ver">1.3 to 1.5</span><span class="log-title">Hands-free era</span></div>
+            <ul>
+              <li>Voice control: "Kaleb Klipper, catch that", fully offline</li>
+              <li>Voice open, close and shutdown commands with per-command toggles</li>
+              <li>Full shutdown from the titlebar power button</li>
+              <li>A custom-built video player to replace the browser default</li>
+            </ul>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-head"><span class="log-ver">1.0 to 1.2</span><span class="log-title">The foundation</span></div>
+            <ul>
+              <li>Rolling replay buffer, one-key klips, MP4 library</li>
+              <li>Trim editor that always keeps your original safe</li>
+              <li>Mic mixing fixes, color themes, tray mode, onboarding</li>
+              <li>The first installer went out to the squad</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a class="brand" href="/">
+        <span class="brand-badge"><svg class="icon"><use href="#i-scissors"/></svg></span>
+        <span class="brand-name">KALEB <em>KLIPPER</em></span>
+      </a>
+      <span class="fine">Made by <strong class="credit">Corgi</strong>, <strong class="credit">Nick</strong> and <strong class="credit">Gusd.B</strong> · Klip responsibly.</span>
+      <nav>
+        <a href="/download">Download</a>
+        <a href="/">Home</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/site.js"></script>
+</body>
+</html>

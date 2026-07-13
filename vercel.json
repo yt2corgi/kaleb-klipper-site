@@ -1,0 +1,11 @@
+{
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/download",
+      "destination": "https://github.com/yt2corgi/kaleb-klipper-site/releases/latest",
+      "permanent": false
+    }
+  ]
+}

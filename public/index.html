@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kaleb Klipper · One key. Klipped.</title>
+  <meta name="description" content="Kaleb Klipper quietly remembers the last 30 seconds of your screen. Press one key and the moment becomes a real MP4. Free, offline, no accounts, no watermark." />
+  <meta property="og:title" content="Kaleb Klipper" />
+  <meta property="og:description" content="One key. Klipped. The free replay buffer for Windows." />
+  <!-- Discord needs an ABSOLUTE og:image URL. If the Vercel project gets a
+       different name or a custom domain, update this to match. -->
+  <meta property="og:image" content="https://kaleb-klipper-site.vercel.app/assets/shot-library.webp" />
+  <link rel="icon" type="image/png" href="/assets/icon.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <canvas id="bg-stars" aria-hidden="true"></canvas>
+
+  <!-- icon sprite: same stroke style as the app -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3"/></symbol>
+    <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 4v16M17 4v16M2 9h5M2 15h5M17 9h5M17 15h5"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 1 10-10c0 2.2-1.8 3-3 3h-2.5a2.5 2.5 0 0 0-1.8 4.2c.4.5.3 1.4-.4 1.9-.7.5-1.5.9-2.3.9z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="8" r="1"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2L5.8 21 7 14.2 2 9.3l6.9-1z"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36L21 8"/><path d="M21 3v5h-5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-tray" viewBox="0 0 24 24"><path d="M4 4h16v12H4zM4 16l3 4h10l3-4"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  </svg>
+
+  <header>
+    <div class="wrap">
+      <a class="brand" href="/">
+        <span class="brand-badge"><svg class="icon"><use href="#i-scissors"/></svg></span>
+        <span class="brand-name">KALEB <em>KLIPPER</em></span>
+      </a>
+      <nav class="top-nav">
+        <a class="plain" href="#features">Features</a>
+        <a class="plain" href="#faq">FAQ</a>
+        <a class="plain" href="/changelog">Changelog</a>
+        <a class="btn btn-primary" href="/download"><svg class="icon"><use href="#i-download"/></svg>Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <h1>Something insane just happened. <em>Klip it.</em></h1>
+      <p class="lede">
+        Kaleb Klipper quietly remembers the last 30 seconds of your screen.
+        Smash one key and that moment becomes a real MP4 in your library.
+        <strong>No accounts, no uploads, no watermark, no monthly fee.</strong>
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-big" href="/download">
+          <svg class="icon"><use href="#i-download"/></svg>
+          Download for Windows
+        </a>
+      </div>
+      <p class="cta-note">Free · Windows 10 and 11 · v<span id="dl-version">1.10.0</span><span id="dl-size"></span></p>
+      <div class="shot-frame">
+        <img src="/assets/shot-library.webp" width="1280" height="820" alt="The Kaleb Klipper library with a saved klip, a search bar and the big CLIP NOW button" />
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <span class="kicker"><svg class="icon"><use href="#i-bolt"/></svg>How it works</span>
+        <h2>You game. It remembers. You press a key.</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>It waits in your tray</h3>
+            <p>The replay buffer rolls quietly in the background while you play. <strong>Nothing is saved and nothing leaves your PC</strong> until you say so.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>You press F8</h3>
+            <p>Or yell <strong>"Kaleb Klipper, catch that"</strong> if your hands are busy. Voice control is optional and runs fully offline.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>The klip is yours</h3>
+            <p>A clean MP4 lands in your library with a satisfying snip. <strong>Trim it, star it, rename it,</strong> or drag it straight into Discord.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <span class="kicker"><svg class="icon"><use href="#i-scissors"/></svg>Features</span>
+        <h2>Small app. Stupidly stacked.</h2>
+        <div class="feat-grid">
+          <div class="feat">
+            <svg class="icon"><use href="#i-refresh"/></svg>
+            <h3>Rolling replay buffer</h3>
+            <p>From 15 seconds to a full 5 minutes of your screen, always ready. You pick the window.</p>
+          </div>
+          <div class="feat">
+            <svg class="icon"><use href="#i-bolt"/></svg>
+            <h3>One key, instant klip</h3>
+            <p>Bind any key you like. The snip sound plays the moment it saves, so you never wonder.</p>
+          </div>
+          <div class="feat">
+            <svg class="icon"><use href="#i-mic"/></svg>
+            <h3>Voice control</h3>
+            <p>Say "Kaleb Klipper, catch that" and it klips hands-free. All offline, no cloud listening.</p>
+          </div>
+          <div class="feat">
+            <svg class="icon"><use href="#i-film"/></svg>
+            <h3>Trim editor</h3>
+            <p>Cut the boring parts on a filmstrip timeline with a waveform. The untouched original is kept safe, so you can re-trim anytime.</p>
+          </div>
+          <div class="feat">
+            <svg class="icon"><use href="#i-palette"/></svg>
+            <h3>Your colors</h3>
+            <p>Eight presets plus your own solid or two-color gradient themes. Glossy glass and rounded modes stack on top.</p>
+          </div>
+          <div class="feat">
+            <svg class="icon"><use href="#i-star"/></svg>
+            <h3>Favourites and search</h3>
+            <p>Star the keepers, find anything fast, and preview klips just by hovering them.</p>
+          </div>
+          <div class="feat">
+            <svg class="icon"><use href="#i-sliders"/></svg>
+            <h3>Quality dials</h3>
+            <p>480p to 1080p, 30 or 60 fps. Match the buffer to your PC and your clips stay smooth.</p>
+          </div>
+          <div class="feat">
+            <svg class="icon"><use href="#i-monitor"/></svg>
+            <h3>Multi monitor</h3>
+            <p>Klip whichever screen the action is on, with optional quick-switch hotkeys.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="update">
+      <div class="wrap band">
+        <div>
+          <span class="kicker"><svg class="icon"><use href="#i-refresh"/></svg>Auto updates</span>
+          <h2>Install once. Stay current forever.</h2>
+          <p class="sub">
+            Kaleb Klipper checks for new versions in the background while it sits in your tray.
+            When one is ready it installs itself the next time the app shuts down,
+            or right away if you click the toast. You will never hunt down an installer again.
+          </p>
+          <ul>
+            <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Silent and polite.</strong> No popups, no nag screens, no interruptions mid-game.</span></li>
+            <li><svg class="icon"><use href="#i-check"/></svg><span><strong>One click when you want it now.</strong> The toast has a restart button, that is the whole ceremony.</span></li>
+          </ul>
+        </div>
+        <div class="mock-toast" role="img" aria-label="The in-app update toast with a restart button and countdown bar">
+          <span class="mock-toast-tile"><svg class="icon"><use href="#i-scissors"/></svg></span>
+          <div>
+            <div class="mock-toast-title">Update 1.11.0 is ready!</div>
+            <div class="mock-toast-sub">It installs itself next time the app shuts down.</div>
+            <span class="mock-toast-act">Restart &amp; update now</span>
+          </div>
+          <span class="mock-toast-x"><svg class="icon"><use href="#i-x"/></svg></span>
+          <span class="mock-toast-bar"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="themes">
+      <div class="wrap band flip">
+        <div class="shot-frame">
+          <img id="theme-shot" src="/assets/shot-theme-gassy-ford.webp" width="1280" height="820" alt="The Kaleb Klipper Themes page wearing the selected color" />
+        </div>
+        <div>
+          <span class="kicker"><svg class="icon"><use href="#i-palette"/></svg>Themes</span>
+          <h2>Pick your poison.</h2>
+          <p class="sub">
+            The whole app re-paints itself around one accent. Tap a color to see
+            the real thing. Run a preset, or build your own from a color picker,
+            solid or a two-color gradient at any angle, with a live preview while you mix it.
+          </p>
+          <div class="theme-dots" role="group" aria-label="Preview the app in each preset color">
+            <button class="theme-dot" data-theme="devils-tango" style="background:#ff3040" title="Inferno" aria-label="Inferno red"></button>
+            <button class="theme-dot" data-theme="le-corgi" style="background:#ff8f1f" title="Magma" aria-label="Magma orange"></button>
+            <button class="theme-dot" data-theme="annie-zheng" style="background:#ffd60a" title="Voltage" aria-label="Voltage yellow"></button>
+            <button class="theme-dot active" data-theme="gassy-ford" style="background:#a6ff17" title="Venom" aria-label="Venom green"></button>
+            <button class="theme-dot" data-theme="withered-oskar" style="background:#3b82ff" title="Tsunami" aria-label="Tsunami blue"></button>
+            <button class="theme-dot" data-theme="owen-abg" style="background:#35e0ff" title="Frostbite" aria-label="Frostbite light blue"></button>
+            <button class="theme-dot" data-theme="quanzyv" style="background:#a855ff" title="Phantom" aria-label="Phantom purple"></button>
+            <button class="theme-dot" data-theme="bootenscat" style="background:#ff54c8" title="Heartbreaker" aria-label="Heartbreaker pink"></button>
+          </div>
+          <p class="dot-hint" id="theme-name">Venom</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="player">
+      <div class="wrap band">
+        <div>
+          <span class="kicker"><svg class="icon"><use href="#i-film"/></svg>The player</span>
+          <h2>Built for klips, not for movies.</h2>
+          <p class="sub">
+            A player that gets to the point: a filmstrip timeline with the audio
+            waveform drawn over it, so you can see exactly where the action is.
+          </p>
+          <ul>
+            <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Trim on the timeline.</strong> Drag two handles, hit save, done. The original stays safe in the Klip Cache.</span></li>
+            <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Star it, rename it, reveal it.</strong> Everything is one click from the player.</span></li>
+            <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Keyboard first.</strong> Space, arrows, M and F do what you expect.</span></li>
+          </ul>
+        </div>
+        <div class="shot-frame">
+          <img src="/assets/shot-player.webp" width="1280" height="820" alt="The klip player with a filmstrip timeline, waveform, trim button and favourite star" />
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <span class="kicker"><svg class="icon"><use href="#i-search"/></svg>FAQ</span>
+        <h2>Fair questions.</h2>
+        <div class="faq">
+          <details>
+            <summary><svg class="icon"><use href="#i-chev"/></svg>Is it really free?</summary>
+            <p class="a">Yes. No account, no trial, no watermark, no "pro" tier. It is an app made for friends.</p>
+          </details>
+          <details>
+            <summary><svg class="icon"><use href="#i-chev"/></svg>Is it recording me all the time?</summary>
+            <p class="a">The buffer lives in memory and is thrown away as it rolls. <strong>Nothing touches your disk until you press the key.</strong> Close it from the tray and it is fully off.</p>
+          </details>
+          <details>
+            <summary><svg class="icon"><use href="#i-chev"/></svg>Does anything get uploaded?</summary>
+            <p class="a">No. Klips stay on your PC. Even voice control runs offline with a local model, so "Kaleb Klipper, catch that" never leaves your room.</p>
+          </details>
+          <details>
+            <summary><svg class="icon"><use href="#i-chev"/></svg>Windows says it protected my PC?</summary>
+            <p class="a">That is SmartScreen being careful with apps it has not seen before. Click <strong>More info</strong>, then <strong>Run anyway</strong>. The app is not signed with a paid certificate yet, that is all it means.</p>
+          </details>
+          <details>
+            <summary><svg class="icon"><use href="#i-chev"/></svg>Where do my klips go?</summary>
+            <p class="a">Videos\Kaleb Klipper by default, as normal MP4 files you can move anywhere. The folder and the storage cap are yours to change in Settings.</p>
+          </details>
+          <details>
+            <summary><svg class="icon"><use href="#i-chev"/></svg>How do updates work?</summary>
+            <p class="a">The app checks quietly in the background. A ready update installs on the next shutdown, or immediately if you click <strong>Restart &amp; update now</strong> on the toast.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="blast">
+          <h2>Stop losing your best moments.</h2>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-big" href="/download">
+              <svg class="icon"><use href="#i-download"/></svg>
+              Download Kaleb Klipper
+            </a>
+          </div>
+          <p class="cta-note">Free · Windows 10 and 11 · v<span class="js-version">1.10.0</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a class="brand" href="/">
+        <span class="brand-badge"><svg class="icon"><use href="#i-scissors"/></svg></span>
+        <span class="brand-name">KALEB <em>KLIPPER</em></span>
+      </a>
+      <span class="fine">Made by <strong class="credit">Corgi</strong>, <strong class="credit">Nick</strong> and <strong class="credit">Gusd.B</strong> · Klip responsibly.</span>
+      <nav>
+        <a href="/download">Download</a>
+        <a href="/changelog">Changelog</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/site.js"></script>
+</body>
+</html>
